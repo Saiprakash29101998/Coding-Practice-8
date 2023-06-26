@@ -90,7 +90,7 @@ app.get("/todos/:todoId/", async (request, response) => {
 app.post("/todos/", async (request, response) => {
   const { id, todo, priority, status } = request.body;
   const addTodoQuery = `
-        INSERT INTO todo(todo, priority, status)
+        INSERT INTO todo(id, todo, priority, status)
         VALUES (${id}, '${todo}', '${priority}', '${status}')
     `;
   await db.run(addTodoQuery);
