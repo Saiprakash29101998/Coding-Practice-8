@@ -3,9 +3,9 @@ GET http://localhost:3025/todos/?status=TO%20DO
 ###
 GET http://localhost:3025/todos/?priority=HIGH
 ###
-GET http://localhost:3025/todos/?priority=HIGH&status=IN%20PROGRESS
+GET http://localhost:3025/todos/?priority=HIGH&status=TO%20DO
 ###
-GET http://localhost:3025/todos/?search_q=Play
+GET http://localhost:3025/todos/?search_q=LEARN
 
 
 
@@ -14,17 +14,48 @@ GET http://localhost:3025/todos/?search_q=Play
 
 
 ###API 2
-GET http://localhost:3025/todos/2/
+GET http://localhost:3025/todos/3/
 
 
 
 ###API 3
 POST http://localhost:3025/todos/
+Content-Type:application/json
+
+{
+  
+  "todo": "Finalize event theme",
+  "priority": "LOW",
+  "status": "TO DO"
+}
+
 
 
 ###API 4
-PUT http://localhost:3025/todos/2/
 
+###Scenario 1
+PUT http://localhost:3025/todos/2/
+Content-Type: application/json
+
+{"status": "DONE"}
+
+###
+
+###Scenario 2
+PUT http://localhost:3025/todos/2/
+Content-Type: application/json
+
+{"todo": "Some task"}
+
+###
+
+###Scenario 3
+PUT http://localhost:3025/todos/2/
+Content-Type: application/json
+
+{"priority": "HIGH"}
+
+###
 
 ###API 5
 DELETE http://localhost:3025/todos/2/
